@@ -118,20 +118,9 @@ int main()
 						for(int i=0; i<guerras.size();i++)
 						{
 							temporal=guerras.at(i);
-							for(int j=0; j<temporal.length();j++)
+							if(Busqueda(temporal)==buscar)
 							{
-								if(temporal[j]==';')
-								{	
-									j=1000;
-								}
-								else
-								{
-									a<<temporal[j];
-								}
-							}
-							if(a.str()==buscar)
-							{
-
+								
 							}
 						}
 						break;
@@ -151,6 +140,25 @@ int main()
 
 	return 0;
 }
+
+string Bonito(string temporal)
+{
+	string pais;
+	string continente;
+	string codigo;
+	string nombre;
+	string a;
+	stringstream s;
+	for(int i=0; i<temporal.length();i++)
+	{
+		if(temporal[i]!=';')
+		{
+			
+		}
+	}	
+
+}
+
 string Busqueda (string temporal)
 {
 	stringstream acum;
