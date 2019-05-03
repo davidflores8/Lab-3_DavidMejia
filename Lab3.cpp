@@ -13,7 +13,7 @@ void calculadoraPrimos(int* );
 void printArray(int*, int);	
 void freeArray(int* );
 string ReglaAritmetica(int, int*);
-
+string Busqueda(string);
 int main()
 {
 	int respuesta=1;
@@ -151,14 +151,23 @@ int main()
 
 	return 0;
 }
-void Busqueda (string temporal)
+string Busqueda (string temporal)
 {
 	stringstream acum;
 	for(int i=0; i<temporal.length();i++)
 	{
-
-
+		if(temporal[i]!=';')
+		{
+			i=1000;	
+		
+		}	
+		else
+		{
+			acum<<temporal[i];
+		}
+		
 	}
+	return acum.str();
 	
 }
 
