@@ -38,6 +38,7 @@ int main()
 		int opcion3=0;
 		int op3=0;
 		int o=0;
+		string temporal;
 		string codigo;
 		string nombre;
 	       	string inicio;
@@ -45,8 +46,9 @@ int main()
 		string pais;
 		string continente;
 		int paises=0;	
+		stringstream a;
 		std::vector<string>guerras;
-
+		string buscar;
 		stringstream insertar;
 		int* primos=new int[25];
 		switch(opcion)
@@ -110,7 +112,28 @@ int main()
 						guerras.push_back(insertar.str());
 						cout<<"Guerra ingresada exitosamente "<<endl;
 						break;
-					case 2: 
+					case 2:
+						cout<<"Ingrese el codigo de la guerra que desea ingresar: ";
+						cin>>buscar;
+						for(int i=0; i<guerras.size();i++)
+						{
+							temporal=guerras.at(i);
+							for(int j=0; j<temporal.length();j++)
+							{
+								if(temporal[j]==';')
+								{	
+									j=1000;
+								}
+								else
+								{
+									a<<temporal[j];
+								}
+							}
+							if(a.str()==buscar)
+							{
+
+							}
+						}
 						break;
 					case 3:
 						break;
@@ -127,6 +150,16 @@ int main()
 	}
 
 	return 0;
+}
+void Busqueda (string temporal)
+{
+	stringstream acum;
+	for(int i=0; i<temporal.length();i++)
+	{
+
+
+	}
+	
 }
 
 int MCD (int numero1, int numero2)
