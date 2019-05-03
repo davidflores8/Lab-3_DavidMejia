@@ -7,7 +7,7 @@ using std::cout;
 using std::endl;
 using std::stringstream;
 using std::string;
-
+using std::vector;
 int MCD (int, int);
 void calculadoraPrimos(int* );
 void printArray(int*, int);	
@@ -35,6 +35,19 @@ int main()
 		int ejercicio1=0; 
 		int n1;
 		int ejercicio2=0;
+		int opcion3=0;
+		int op3=0;
+		int o=0;
+		string codigo;
+		string nombre;
+	       	string inicio;
+		string fin;
+		string pais;
+		string continente;
+		int paises=0;	
+		std::vector<string>guerras;
+
+		stringstream insertar;
 		int* primos=new int[25];
 		switch(opcion)
 		{
@@ -61,6 +74,52 @@ int main()
 				cout<<"La cadena resultante es: "<<ReglaAritmetica(ejercicio2, primos);
 				freeArray(primos);
 			break;
+			case 3:
+				cout<<"1. Insertar guerra"<<endl;
+				cout<<"2. Buscar guerra"<<endl;
+				cout<<"3. Eliminar Guerra"<<endl;
+				cout<<"4. Listar Guerra"<<endl;
+				cin>>opcion3;
+				switch(opcion3)
+				{
+					case 1:
+						cout<<"Ingrese su cogigo: "<<endl;
+						cin>>codigo;
+						insertar<<codigo<<";";
+						cout<<"Ingrese su nombre: "<<endl;
+						cin>>nombre;
+						insertar<<nombre<<";";
+						cout<<"Ingrese ano de inicio: "<<endl;
+						cin>>inicio;
+						insertar<<inicio<<";";
+						cout<<"Ingrese ano de fin: "<<endl;
+						cin>>fin;
+						insertar<<fin<<";";
+						cout<<"Cuantos paises participaron?";
+						cin>>paises;
+						for(int i=0; i<paises;i++)
+						{
+							cout<<"Ingrese el pais: "<<endl;
+							cin>>pais;
+							insertar<<pais<<",";
+						}
+						insertar<<";";
+						cout<<"Ingrese el continente"<<endl;
+						cin>>continente;
+						insertar<<continente;	
+						guerras.push_back(insertar.str());
+						cout<<"Guerra ingresada exitosamente "<<endl;
+						break;
+					case 2: 
+						break;
+					case 3:
+						break;
+					case 4:
+						cout<<"1. Listar guerras"<<endl;
+						cout<<"2. Listar por continente"<<endl;
+						cin>>op3;
+						break;	
+				}	
 
 		}
 		cout<<endl<<"Desea repetir el programa? 1. Si  2. No"<<endl;
@@ -144,7 +203,6 @@ string ReglaAritmetica(int numero, int* primos)
 	{
 		while(numero%primos[i]==0)
 		{
-			cout<<primos[i]<<" - "<<endl;
 			contador=contador+1;
 			numero=numero/primos[i];
 		}
